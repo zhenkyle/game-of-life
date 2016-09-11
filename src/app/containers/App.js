@@ -4,10 +4,12 @@ import {connect} from 'react-redux';
 import * as GameActions from '../actions/index';
 
 class App extends Component {
-  render() {
+  componentDidMount() {
     const {world, actions} = this.props;
-    console.log(world);
-    console.log(actions);
+    actions.loadNewWorld(world);
+  }
+
+  render() {
     return (
       <div>
         This is App
