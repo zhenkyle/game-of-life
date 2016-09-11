@@ -23,3 +23,4 @@ function other() {
     .pipe(fileFilter)
     .pipe(gulp.dest(conf.paths.dist));
 }
+
