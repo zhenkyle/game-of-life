@@ -32,6 +32,6 @@ function watch(done) {
 
 gulp.task('deploy', gulp.series('build', () => {
   return gulp.src('dist')
-    pipe(gulpSubtree())
+    .pipe(gulpSubtree())
     .pipe(gulpClean());
 }));
