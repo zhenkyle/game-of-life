@@ -5,8 +5,8 @@ import * as GameActions from '../actions/index';
 
 class App extends Component {
   componentDidMount() {
-    const {world, actions} = this.props;
-    actions.loadNewWorld(world);
+    const {actions} = this.props;
+    actions.delayUpdateWorld();
   }
 
   render() {
