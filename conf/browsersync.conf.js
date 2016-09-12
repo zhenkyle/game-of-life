@@ -9,6 +9,7 @@ const webpackBundler = webpack(webpackConf);
 
 module.exports = function () {
   return {
+    host: '0.0.0.0',
     server: {
       baseDir: [
         conf.paths.tmp,
