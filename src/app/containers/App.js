@@ -9,6 +9,11 @@ class App extends Component {
     actions.delayUpdateWorld();
   }
 
+  componentWillReceiveProps() {
+    const {actions} = this.props;
+    actions.delayUpdateWorld();
+  }
+
   render() {
     return (
       <div>
