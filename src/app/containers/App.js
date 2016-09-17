@@ -2,6 +2,9 @@ import React, {Component, PropTypes} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as GameActions from '../actions/index';
+import Header from '../components/Header';
+import MainSection from '../components/MainSection';
+import Footer from '../components/Footer';
 
 class App extends Component {
   componentDidMount() {
@@ -15,9 +18,12 @@ class App extends Component {
   }
 
   render() {
+    const {world, actions} = this.props;
     return (
-      <div>
-        This is App
+      <div className="HolyGrail">
+        <Header/>
+        <MainSection world={world} actions={actions}/>
+        <Footer/>
       </div>
     );
   }
