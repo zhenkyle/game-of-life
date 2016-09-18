@@ -1,4 +1,4 @@
-import {UPDATE_WORLD, CHANGE_SIZE, CLEAR} from '../constants/ActionTypes';
+import {UPDATE_WORLD, CHANGE_SIZE, CLEAR, ADD_POINT} from '../constants/ActionTypes';
 import {MEDIUM} from '../constants/BoardSizeTypes';
 
 function getArray(x, y, func) {
@@ -49,6 +49,14 @@ export default function world(state = initialState, action) {
     }
     case CHANGE_SIZE: {
       return getArray(action.payload[0], action.payload[1], () => [0, false]);
+    }
+    case ADD_POINT: {
+      return state.map((u, y) => u.map((v, x) => {
+        if (y === action.payload.y && x === action.payload.x) {
+          return [1, true];
+        }
+        return v;
+      }));
     }
     default:
       return state;

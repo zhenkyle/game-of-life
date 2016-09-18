@@ -8,9 +8,9 @@ function SpeedSection({status, actions}) {
   return (
     <p>
       <span>Sim Speed:</span>
-      <button name="btnSlow" className={status.speed === SLOW ? "active" : null} onClick={_onBtnSlowClick}>Slow</button>
-      <button name="btnMedium" className={status.speed === NORMAL ? "active" : null} onClick={_onBtnMediumClick}>Medium</button>
-      <button name="btnFast" className={status.speed === FAST ? "active" : null} onClick={_onBtnFastClick}>Fast</button>
+      &nbsp;<button name="btnSlow" className={status.speed === SLOW ? "active" : null} onClick={_onBtnSlowClick}>Slow</button>
+      &nbsp;<button name="btnMedium" className={status.speed === NORMAL ? "active" : null} onClick={_onBtnMediumClick}>Medium</button>
+      &nbsp;<button name="btnFast" className={status.speed === FAST ? "active" : null} onClick={_onBtnFastClick}>Fast</button>
     </p>
 
 );}

@@ -19,14 +19,14 @@ export default function status(state = initialState, action) {
     case CHANGE_SIZE: {
       return {...state, boardSize: action.payload, appStatus: "paused", generations: 0};
     }
+    case RUN: {
+      return {...state, appStatus: "running"};
+    }
     case CLEAR: {
       return {...state, appStatus: "paused", generations: 0};
     }
     case PAUSE: {
       return {...state, appStatus: "paused"};
-    }
-    case RUN: {
-      return {...state, appStatus: "running"};
     }
     default:
       return state;

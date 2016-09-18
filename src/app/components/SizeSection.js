@@ -12,9 +12,9 @@ function SizeSection({status, actions}) {
   return (
     <p>
       <span>Board Size:</span>
-      <button name="btnSmall" className={cmpAry(status.boardSize, SMALL) ? "active" : null} onClick={_onBtnSmallClick}>Size: 50x30</button>
-      <button name="btnMedium" className={cmpAry(status.boardSize, MEDIUM) ? "active" : null} onClick={_onBtnMediumClick}>Size: 70x50</button>
-      <button name="btnLarge" className={cmpAry(status.boardSize, LARGE) ? "active" : null} onClick={_onBtnLargeClick}>Size: 100x80</button>
+      &nbsp;<button name="btnSmall" className={cmpAry(status.boardSize, SMALL) ? "active" : null} onClick={_onBtnSmallClick}>Size: 50x30</button>
+      &nbsp;<button name="btnMedium" className={cmpAry(status.boardSize, MEDIUM) ? "active" : null} onClick={_onBtnMediumClick}>Size: 70x50</button>
+      &nbsp;<button name="btnLarge" className={cmpAry(status.boardSize, LARGE) ? "active" : null} onClick={_onBtnLargeClick}>Size: 100x80</button>
     </p>
 
 );}

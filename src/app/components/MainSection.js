@@ -3,22 +3,25 @@ import ControlSection from '../components/ControlSection';
 import SizeSection from '../components/SizeSection';
 import SpeedSection from '../components/SpeedSection';
 
-function Line({data}) {
+function Line({data, y, actions}) {
   return (
     <tr>
       {data.map((cell, j) =>
-        <Cell key={j} data={cell}/>
+        <Cell key={j} data={cell} x={j} y={y} actions={actions}/>
       )}
     </tr>
 );}
 
 Line.propTypes = {
-  data: PropTypes.array.isRequired
+  data: PropTypes.array.isRequired,
+  y: PropTypes.number.isRequired,
+  actions: PropTypes.object.isRequired
 };
 
-function Cell({data}) {
+function Cell({data, x, y, actions}) {
+  const _onClick = () => actions.addPoint(x, y);
   if (data[0] === 0) {
-    return <td></td>;
+    return <td onClick={_onClick}></td>;
   } else if (data[1] === false) {
     return <td className="alive"></td>;
   }
@@ -26,7 +29,10 @@ function Cell({data}) {
 }
 
 Cell.propTypes = {
-  data: PropTypes.array.isRequired
+  data: PropTypes.array.isRequired,
+  x: PropTypes.number.isRequired,
+  y: PropTypes.number.isRequired,
+  actions: PropTypes.object.isRequired
 };
 
 function MainSection({world, status, actions}) {
@@ -36,7 +42,7 @@ function MainSection({world, status, actions}) {
       <table>
         <tbody>
           {world.map((line, i) =>
-            <Line key={i} data={line}/>)}
+            <Line key={i} data={line} y={i} actions={actions}/>)}
         </tbody>
       </table>
       <SizeSection status={status} actions={actions}/>

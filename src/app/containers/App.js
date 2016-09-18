@@ -9,12 +9,14 @@ import Footer from '../components/Footer';
 class App extends Component {
   componentDidMount() {
     const {actions} = this.props;
-    actions.delayUpdateWorld();
+    actions.delayUpdateWorld(false);
   }
 
-  componentWillReceiveProps() {
+  componentWillReceiveProps(nextProps) {
     const {actions} = this.props;
-    actions.delayUpdateWorld();
+    if (nextProps.status.appStatus === "running" && nextProps.status.generations !== this.props.status.generations) {
+      actions.delayUpdateWorld(false);
+    }
   }
 
   render() {

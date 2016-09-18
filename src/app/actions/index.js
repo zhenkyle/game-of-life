@@ -26,14 +26,19 @@ export function changeSpeed(speed) {
        payload: speed};
 }
 
-export function delayUpdateWorld() {
+export function addPoint(x, y) {
+  return {type: types.ADD_POINT,
+       payload: {x, y}};
+}
+export function delayUpdateWorld(setRunning) {
   return (dispatch, getState) => {
     const state = getState();
-    if (state.status.appStatus === "running") {
-      setTimeout(() => {
-        dispatch(updateWorld());
-      }, state.status.speed);
+    if (setRunning === true) {
+      dispatch(run());
     }
+    setTimeout(() => {
+      dispatch(updateWorld());
+    }, state.status.speed);
   };
 }
 
