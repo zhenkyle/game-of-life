@@ -18,11 +18,11 @@ class App extends Component {
   }
 
   render() {
-    const {world, actions} = this.props;
+    const {world, status, actions} = this.props;
     return (
       <div className="HolyGrail">
         <Header/>
-        <MainSection world={world} actions={actions}/>
+        <MainSection world={world} status={status} actions={actions}/>
         <Footer/>
       </div>
     );
@@ -31,12 +31,14 @@ class App extends Component {
 
 App.propTypes = {
   world: PropTypes.array.isRequired,
+  status: PropTypes.object.isRequired,
   actions: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state) {
   return {
-    world: state.world
+    world: state.world,
+    status: state.status
   };
 }
 

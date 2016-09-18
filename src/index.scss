@@ -22,9 +22,18 @@
 }
 
 .HolyGrail-content {
-  width: 800px;
+  display: flex;
+  flex-direction: column;
+  width: 1100px;
   margin-left: auto;
   margin-right: auto;
+  p {
+    margin-left: auto;
+    margin-right: auto;
+    .active {
+      background-color: #666;
+    }
+  }
   table {
     border-collapse: collapse;
     margin-left: auto;
@@ -36,12 +45,12 @@
       width: 8px;
       height: 8px;
       border: 1px solid;
-    }
-    td.alive {
-      background-color: #000;
-    }
-    td.newbron {
-      background-color: #666;
+      &.alive {
+        background-color: #000;
+      }
+      &.newbron {
+        background-color: #666;    
+      }
     }
   }
 }

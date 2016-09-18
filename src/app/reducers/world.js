@@ -1,4 +1,5 @@
-import {UPDATE_WORLD} from '../constants/ActionTypes';
+import {UPDATE_WORLD, CHANGE_SIZE, CLEAR} from '../constants/ActionTypes';
+import {MEDIUM} from '../constants/BoardSizeTypes';
 
 function getArray(x, y, func) {
   return [...Array(y)].map(() => [...Array(x)].map(() => func()));
@@ -8,7 +9,7 @@ function mod(n, m) {
   return ((n % m) + m) % m;
 }
 // Cell -> [1, false] means [alive, new bron = flase]
-const initialState = getArray(75, 75, () => [Math.floor(Math.random() * 2), true]);
+const initialState = getArray(MEDIUM[0], MEDIUM[1], () => [Math.floor(Math.random() * 2), true]);
 
 export default function world(state = initialState, action) {
   switch (action.type) {
@@ -40,6 +41,14 @@ export default function world(state = initialState, action) {
         return newValue;
       }));
       return newWorld;
+    }
+    case CLEAR: {
+      return state.map(u => u.map(() => {
+        return [0, false];
+      }));
+    }
+    case CHANGE_SIZE: {
+      return getArray(action.payload[0], action.payload[1], () => [0, false]);
     }
     default:
       return state;
