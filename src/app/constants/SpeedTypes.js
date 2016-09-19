@@ -1,3 +1,3 @@
-export const SLOW = 2000;
-export const NORMAL = 1000;
-export const FAST = 500;
+export const SLOW = 200;
+export const NORMAL = 100;
+export const FAST = 50;
